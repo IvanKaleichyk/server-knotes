@@ -1,21 +1,18 @@
 package com.kaleichyk.plugins
 
-import io.ktor.gson.*
-import io.ktor.features.*
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.request.*
-import io.ktor.routing.*
+import com.google.gson.FieldNamingPolicy
+import io.ktor.application.Application
+import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.gson.gson
+import java.text.DateFormat
 
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
         gson {
-        }
-    }
-
-    routing {
-        get("/json/gson") {
-            call.respond(mapOf("hello" to "world"))
+            setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            setDateFormat(DateFormat.LONG)
+            setPrettyPrinting()
         }
     }
 }
