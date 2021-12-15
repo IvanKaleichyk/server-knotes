@@ -5,19 +5,19 @@ import com.kaleichyk.plugins.configureMonitoring
 import com.kaleichyk.plugins.configureSecurity
 import com.kaleichyk.plugins.configureSerialization
 import com.kaleichyk.route.configureTestRoute
+import io.ktor.application.Application
 import io.ktor.routing.routing
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
+import io.ktor.server.netty.EngineMain
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-        configureSecurity()
-        configureHTTP()
-        configureMonitoring()
-        configureSerialization()
+fun main(args: Array<String>) = EngineMain.main(args)
 
-        routing {
-            configureTestRoute()
-        }
-    }.start(wait = true)
+fun Application.module() {
+    configureSecurity()
+    configureHTTP()
+    configureMonitoring()
+    configureSerialization()
+
+    routing {
+        configureTestRoute()
+    }
 }
