@@ -1,7 +1,8 @@
 package com.kaleichyk
 
 object BuildVariant {
-    val buildVariant = BuildVariantType.DEBUG
+
+    val buildVariantType = BuildVariantType.DEBUG
 }
 
 enum class BuildVariantType {

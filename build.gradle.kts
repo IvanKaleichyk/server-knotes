@@ -1,8 +1,10 @@
 import kaleichyk.com.Dependencies
+import kaleichyk.com.Versions
 
 plugins {
     application
-    kotlin("jvm") version kaleichyk.com.Versions.KOTLIN_VERSION
+    kotlin("jvm") version "1.6.0"
+    id("io.gitlab.arturbosch.detekt") version "1.19.0"
 }
 
 group = "com.kaleichyk"
@@ -14,6 +16,38 @@ application {
 repositories {
     mavenCentral()
 }
+
+buildscript {
+    dependencies {
+        classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.18.1")
+    }
+}
+
+detekt {
+    toolVersion = Versions.DETEKT_VERSION
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = false // activate all available (even unstable) rules.
+    config =
+        files("$projectDir/config/detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
+    baseline = file("$projectDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true) // observe findings in your browser with structure and code snippets
+        xml.required.set(true) // checkstyle like format mainly for integrations like Jenkins
+        txt.required.set(true) // similar to the console output, contains issue signature to manually edit baseline files
+        sarif.required.set(true) // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with Github Code Scanning
+    }
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "1.8"
+}
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "1.8"
+}
+
 
 dependencies {
     implementation(Dependencies.KTOR_SERVER_CORE)

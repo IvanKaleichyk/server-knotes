@@ -8,7 +8,7 @@ fun ApplicationConfig.stringProperty(path: String) = property(prefix + path).get
 
 fun ApplicationConfig.longProperty(path: String) = property(prefix + path).getString().toLong()
 
-private val prefix = when (BuildVariant.buildVariant) {
+private val prefix = when (BuildVariant.buildVariantType) {
     BuildVariantType.DEBUG -> "debug"
     BuildVariantType.RELEASE -> "release"
 }

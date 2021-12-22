@@ -2,6 +2,4 @@ package com.kaleichyk.di
 
 import org.koin.dsl.module
 
-val controllerModule = module {
-
-}
+val controllerModule = module {}
