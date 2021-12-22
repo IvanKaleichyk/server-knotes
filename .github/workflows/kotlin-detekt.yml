@@ -23,6 +23,4 @@ jobs:
         run: chmod +x ./gradlew
       
       - run: ./gradlew build
-      - run: ./gradlew detekt  
       - run: ./gradlew test  
-      
