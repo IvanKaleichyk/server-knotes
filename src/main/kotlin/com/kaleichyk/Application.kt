@@ -12,7 +12,7 @@ import io.ktor.server.netty.EngineMain
 
 fun main(args: Array<String>) = EngineMain.main(args)
 
-@Suppress("UNUSED_PARAMETER")
+@Suppress("UNUSED")
 fun Application.module() {
     configureDI()
     configureSecurity()
