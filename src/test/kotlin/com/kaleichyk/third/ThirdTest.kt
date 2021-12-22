@@ -8,6 +8,6 @@ class ThirdTest {
     @Test
     fun thirdTest1(){
         val iu = 8
-        assertEquals(iu, 8)
+        assertEquals(iu, 6)
     }
 }
