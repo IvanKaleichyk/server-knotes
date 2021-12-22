@@ -6,4 +6,5 @@ object Versions {
     const val KOTLIN_VERSION = "1.6.0"
     const val LOGBACK_VERSION = "1.2.7"
     const val PROMETEUS_VERSION = "1.8.0"
+    const val KOIN_VERSION = "3.1.4"
 }

@@ -1,5 +1,6 @@
 package com.kaleichyk
 
+import com.kaleichyk.plugins.configureDI
 import com.kaleichyk.plugins.configureHTTP
 import com.kaleichyk.plugins.configureMonitoring
 import com.kaleichyk.plugins.configureSecurity
@@ -11,7 +12,9 @@ import io.ktor.server.netty.EngineMain
 
 fun main(args: Array<String>) = EngineMain.main(args)
 
+@Suppress("UNUSED_PARAMETER")
 fun Application.module() {
+    configureDI()
     configureSecurity()
     configureHTTP()
     configureMonitoring()
