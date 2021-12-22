@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 class ThirdTest {
 
     @Test
-    fun thirdTest(){
+    fun thirdTest1(){
         val iu = 8
         assertEquals(iu, 8)
     }
