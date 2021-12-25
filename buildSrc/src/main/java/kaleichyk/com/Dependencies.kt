@@ -10,10 +10,17 @@ object Dependencies {
 
     const val MICROMETER_REGISTRY_PROMETHEUS =
         "io.micrometer:micrometer-registry-prometheus:${Versions.PROMETEUS_VERSION}"
+    const val KTOR_SERIALIZABLE = "io.ktor:ktor-serialization:${Versions.KTOR_VERSION}"
     const val KTOR_GSON = "io.ktor:ktor-gson:${Versions.KTOR_VERSION}"
     const val KTOR_SERVER_NETTY = "io.ktor:ktor-server-netty:${Versions.KTOR_VERSION}"
 
+    // DI
     const val KOIN = "io.insert-koin:koin-ktor:${Versions.KOIN_VERSION}"
+
+    // DATABASE
+    const val EXPOSED_CORE = "org.jetbrains.exposed:exposed-core:${Versions.EXPOSED_VERSION}"
+    const val EXPOSED_DAO = "org.jetbrains.exposed:exposed-dao:${Versions.EXPOSED_VERSION}"
+    const val EXPOSED_JDBC = "org.jetbrains.exposed:exposed-jdbc:${Versions.EXPOSED_VERSION}"
 
     const val LOGBACK_CLASSIC = "ch.qos.logback:logback-classic:${Versions.LOGBACK_VERSION}"
 
