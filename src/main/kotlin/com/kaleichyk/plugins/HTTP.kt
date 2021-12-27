@@ -6,7 +6,6 @@ import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.features.DefaultHeaders
 import io.ktor.features.ForwardedHeaderSupport
-import io.ktor.features.PartialContent
 import io.ktor.features.XForwardedHeaderSupport
 
 fun Application.configureHTTP() {
@@ -16,10 +15,4 @@ fun Application.configureHTTP() {
     }
     install(ForwardedHeaderSupport) // WARNING: for security, do not include this if not behind a reverse proxy
     install(XForwardedHeaderSupport) // WARNING: for security, do not include this if not behind a reverse proxy
-    install(PartialContent) {
-        // Maximum number of ranges that will be accepted from a HTTP request.
-        // If the HTTP request specifies more ranges, they will all be merged into a single range.
-//        maxRangeCount = 10
-    }
-
 }

@@ -1,0 +1,30 @@
+import kaleichyk.com.Dependencies
+
+plugins {
+    id 'java'
+    id 'kotlin'
+    id "org.jetbrains.kotlin.plugin.serialization"
+}
+
+group 'com.kaleichyk'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":core-user")
+    implementation project(":common-utils")
+
+    implementation Dependencies.KTOR_SERVER_CORE
+    implementation Dependencies.KTOR_AUTH
+    implementation Dependencies.KTOR_AUTH_JWT
+    implementation Dependencies.KTOR_SERIALIZABLE
+
+    testImplementation Dependencies.KOTLIN_TEST_JUNIT
+}
+
+test {
+    useJUnitPlatform()
+}

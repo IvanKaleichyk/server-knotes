@@ -1,6 +1,8 @@
-package com.kaleichyk.utils.extension
+package com.kaleichyk
 
 import com.auth0.jwt.algorithms.Algorithm
+import com.kaleichyk.exceptions.longProperty
+import com.kaleichyk.exceptions.stringProperty
 import io.ktor.application.Application
 
 val Application.algorithm: Algorithm get() = Algorithm.HMAC512(environment.config.stringProperty(SECRET_PATH))

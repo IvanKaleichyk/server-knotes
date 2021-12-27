@@ -4,6 +4,7 @@ import kaleichyk.com.Versions
 plugins {
     application
     kotlin("jvm") version "1.6.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.6.0"
     id("io.gitlab.arturbosch.detekt") version "1.19.0"
 }
 
@@ -50,9 +51,11 @@ tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configure
 
 
 dependencies {
+    implementation(project(":feature-user"))
+    implementation(project(":core-user"))
+    implementation(project(":common-utils"))
+
     implementation(Dependencies.KTOR_SERVER_CORE)
-    implementation(Dependencies.KTOR_AUTH)
-    implementation(Dependencies.KTOR_AUTH_JWT)
 
     implementation(Dependencies.KTOR_METRICS)
     implementation(Dependencies.KTOR_METRICS_MICROMETER)
@@ -61,9 +64,16 @@ dependencies {
     implementation(Dependencies.KTOR_GSON)
     implementation(Dependencies.KTOR_SERVER_NETTY)
 
+//  DI
     implementation(Dependencies.KOIN)
 
     implementation(Dependencies.LOGBACK_CLASSIC)
+
+//  Database
+    implementation(Dependencies.EXPOSED_CORE)
+    implementation(Dependencies.EXPOSED_DAO)
+    implementation(Dependencies.EXPOSED_JDBC)
+    implementation("org.postgresql:postgresql:42.3.1")
 
     implementation(Dependencies.KTOR_SERVER_TESTS)
     implementation(Dependencies.KOTLIN_TEST_JUNIT)

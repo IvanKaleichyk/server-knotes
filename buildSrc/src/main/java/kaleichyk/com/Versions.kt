@@ -8,4 +8,6 @@ object Versions {
     const val PROMETEUS_VERSION = "1.8.0"
     const val KOIN_VERSION = "3.1.4"
     const val DETEKT_VERSION = "1.19.0"
+
+    const val EXPOSED_VERSION = "0.36.2"
 }

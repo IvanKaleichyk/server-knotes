@@ -1,4 +1,4 @@
-package com.kaleichyk.utils.extension
+package com.kaleichyk.exceptions
 
 import com.kaleichyk.BuildVariant
 import com.kaleichyk.BuildVariantType
@@ -9,6 +9,6 @@ fun ApplicationConfig.stringProperty(path: String) = property(prefix + path).get
 fun ApplicationConfig.longProperty(path: String) = property(prefix + path).getString().toLong()
 
 private val prefix = when (BuildVariant.buildVariantType) {
-    BuildVariantType.DEBUG -> "debug"
-    BuildVariantType.RELEASE -> "release"
+    BuildVariantType.DEBUG -> "debug."
+    BuildVariantType.RELEASE -> "release."
 }
