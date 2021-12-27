@@ -1,1 +1,1 @@
-D:\ktor\project\server-knotes\buildSrc\build\classes\kotlin\main\kaleichyk\com\Dependencies.class;D:\ktor\project\server-knotes\buildSrc\build\classes\kotlin\main\kaleichyk\com\Versions.class
+D:\ktor\project\test\server-knotes\buildSrc\build\classes\kotlin\main\kaleichyk\com\Dependencies.class;D:\ktor\project\test\server-knotes\buildSrc\build\classes\kotlin\main\kaleichyk\com\Versions.class
