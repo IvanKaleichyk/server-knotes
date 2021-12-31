@@ -1,7 +1,5 @@
-package com.kaleichyk.exceptions
+package com.kaleichyk
 
-import com.kaleichyk.BuildVariant
-import com.kaleichyk.BuildVariantType
 import io.ktor.config.ApplicationConfig
 
 fun ApplicationConfig.stringProperty(path: String) = property(prefix + path).getString()

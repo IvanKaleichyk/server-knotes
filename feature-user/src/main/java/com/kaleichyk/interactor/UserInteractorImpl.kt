@@ -1,6 +1,5 @@
 package com.kaleichyk.interactor
 
-import com.kaleichyk.models.UserDetails
 import com.kaleichyk.service.UserService
 
 class UserInteractorImpl(
@@ -10,8 +9,6 @@ class UserInteractorImpl(
     override suspend fun getUsers(page: Int, perPage: Int) = service.getUsers(page, perPage)
 
     override suspend fun getUser(id: Long) = service.getUser(id)
-
-    override suspend fun addUser(userDetails: UserDetails) = service.addUser(userDetails)
 
     override suspend fun setUserName(id: Long, name: String) = service.setUserName(id, name)
 

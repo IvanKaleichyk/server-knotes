@@ -10,6 +10,7 @@ class UserDetailsEntity(id: EntityID<Long>) : LongEntity(id) {
 
     var name by UserDetailsTable.name
     var email by UserDetailsTable.email
+    var password by UserDetailsTable.password
     var image by UserDetailsTable.image
     var about by UserDetailsTable.about
     val lastUpdated by UserDetailsTable.lastUpdated

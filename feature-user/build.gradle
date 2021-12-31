@@ -17,10 +17,11 @@ dependencies {
     implementation project(":core-user")
     implementation project(":common-utils")
 
-    implementation Dependencies.KTOR_SERVER_CORE
     implementation Dependencies.KTOR_AUTH
     implementation Dependencies.KTOR_AUTH_JWT
     implementation Dependencies.KTOR_SERIALIZABLE
+
+    implementation Dependencies.KOIN_BASE
 
     testImplementation Dependencies.KOTLIN_TEST_JUNIT
 }

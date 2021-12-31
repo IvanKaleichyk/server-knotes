@@ -15,7 +15,8 @@ object Dependencies {
     const val KTOR_SERVER_NETTY = "io.ktor:ktor-server-netty:${Versions.KTOR_VERSION}"
 
     // DI
-    const val KOIN = "io.insert-koin:koin-ktor:${Versions.KOIN_VERSION}"
+    const val KOIN_BASE = "io.insert-koin:koin-core:${Versions.KOIN_VERSION}"
+    const val KOIN_KTOR = "io.insert-koin:koin-ktor:${Versions.KOIN_VERSION}"
 
     // DATABASE
     const val EXPOSED_CORE = "org.jetbrains.exposed:exposed-core:${Versions.EXPOSED_VERSION}"

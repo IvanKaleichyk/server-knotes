@@ -51,8 +51,10 @@ tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configure
 
 
 dependencies {
+    implementation(project(":feature-auth"))
     implementation(project(":feature-user"))
     implementation(project(":core-user"))
+    implementation(project(":core-token"))
     implementation(project(":common-utils"))
 
     implementation(Dependencies.KTOR_SERVER_CORE)
@@ -65,14 +67,16 @@ dependencies {
     implementation(Dependencies.KTOR_SERVER_NETTY)
 
 //  DI
-    implementation(Dependencies.KOIN)
+    implementation(Dependencies.KOIN_KTOR)
 
+//  Logs
     implementation(Dependencies.LOGBACK_CLASSIC)
 
 //  Database
     implementation(Dependencies.EXPOSED_CORE)
     implementation(Dependencies.EXPOSED_DAO)
     implementation(Dependencies.EXPOSED_JDBC)
+
     implementation("org.postgresql:postgresql:42.3.1")
 
     implementation(Dependencies.KTOR_SERVER_TESTS)

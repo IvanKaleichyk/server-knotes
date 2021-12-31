@@ -1,10 +1,14 @@
 package com.kaleichyk.plugins
 
-import com.kaleichyk.di.controllerModule
-import com.kaleichyk.di.interactorModule
-import com.kaleichyk.di.repositoryModule
-import com.kaleichyk.di.serviceModule
+import com.kaleichyk.di.coreUserModule
+import com.kaleichyk.di.featureAuthModule
+import com.kaleichyk.di.featureUserModule
+import com.kaleichyk.di.getCoreTokenModule
 import com.kaleichyk.di.utilsModule
+import com.kaleichyk.utils.extentension.algorithm
+import com.kaleichyk.utils.extentension.issuer
+import com.kaleichyk.utils.extentension.subject
+import com.kaleichyk.utils.extentension.tokenValidTime
 import io.ktor.application.Application
 import io.ktor.application.install
 import org.koin.ktor.ext.Koin
@@ -12,10 +16,10 @@ import org.koin.ktor.ext.Koin
 fun Application.configureDI() {
     install(Koin) {
         modules(
-            controllerModule,
-            interactorModule,
-            repositoryModule,
-            serviceModule,
+            getCoreTokenModule(algorithm, subject, issuer, tokenValidTime),
+            coreUserModule,
+            featureAuthModule,
+            featureUserModule,
             utilsModule
         )
     }

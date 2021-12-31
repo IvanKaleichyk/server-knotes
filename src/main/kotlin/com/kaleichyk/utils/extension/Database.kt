@@ -1,6 +1,6 @@
 package com.kaleichyk.utils.extension
 
-import com.kaleichyk.exceptions.stringProperty
+import com.kaleichyk.stringProperty
 import io.ktor.application.Application
 
 val Application.databaseUrl get() = environment.config.stringProperty(DATABASE_URL_PATH)

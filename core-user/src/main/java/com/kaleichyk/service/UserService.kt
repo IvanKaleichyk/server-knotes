@@ -1,10 +1,11 @@
 package com.kaleichyk.service
 
 import com.kaleichyk.models.UserDetails
+import com.kaleichyk.models.UserDetailsBody
 
 interface UserService {
 
-    companion object{
+    companion object {
 
         const val USER_PER_PAGE = 10
         const val USER_DEFAULT_PAGE = 1
@@ -14,9 +15,11 @@ interface UserService {
 
     suspend fun getUser(id: Long): UserDetails
 
-    suspend fun addUser(userDetails: UserDetails): UserDetails
+    suspend fun addUser(userDetails: UserDetailsBody): UserDetails
 
     suspend fun setUserName(id: Long, name: String): UserDetails
 
     suspend fun setUserImage(id: Long, url: String): UserDetails
+
+    suspend fun checkUserCredentials(email: String, password: String): Boolean
 }

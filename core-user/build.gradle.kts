@@ -19,6 +19,8 @@ dependencies {
     implementation(Dependencies.EXPOSED_DAO)
     implementation(Dependencies.EXPOSED_JDBC)
 
+    implementation(Dependencies.KOIN_BASE)
+
     testImplementation(Dependencies.KOTLIN_TEST_JUNIT)
 }
 

@@ -1,6 +1,7 @@
 package com.kaleichyk.repository
 
 import com.kaleichyk.models.UserDetails
+import com.kaleichyk.models.UserDetailsBody
 
 interface UserRepository {
 
@@ -8,9 +9,11 @@ interface UserRepository {
 
     suspend fun getUser(id: Long): UserDetails
 
-    suspend fun addUser(userDetails: UserDetails): UserDetails
+    suspend fun addUser(userDetails: UserDetailsBody): UserDetails
 
     suspend fun setUserName(id: Long, name: String): UserDetails
 
     suspend fun setUserImage(id: Long, url: String): UserDetails
+
+    suspend fun checkUserCredentials(email: String, password: String): Boolean
 }

@@ -2,7 +2,6 @@ package com.kaleichyk
 
 import com.kaleichyk.controller.UserController
 import com.kaleichyk.extensions.ChangedData
-import com.kaleichyk.models.UserDetails
 import com.kaleichyk.service.UserService.Companion.USER_DEFAULT_PAGE
 import com.kaleichyk.service.UserService.Companion.USER_PER_PAGE
 import io.ktor.application.call
@@ -24,11 +23,6 @@ fun Routing.createUserRoute(controller: UserController) {
                 val response = controller.getUsers(page, perPage)
                 call.respond(response)
             }
-        }
-
-        post { userDetails: UserDetails ->
-            val response = controller.addUser(userDetails)
-            call.respond(response)
         }
 
         get("/{id}") {

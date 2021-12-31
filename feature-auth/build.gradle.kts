@@ -14,10 +14,13 @@ repositories {
 
 dependencies {
     implementation(project(":common-utils"))
+    implementation(project(":core-token"))
+    implementation(project(":core-user"))
 
-    implementation(Dependencies.KTOR_SERVER_CORE)
     implementation(Dependencies.KTOR_AUTH)
     implementation(Dependencies.KTOR_AUTH_JWT)
+
+    implementation(Dependencies.KOIN_BASE)
 
     testImplementation(Dependencies.KOTLIN_TEST_JUNIT)
 }

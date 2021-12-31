@@ -9,8 +9,6 @@ interface UserController {
 
     suspend fun getUser(id: Long): UserDetails
 
-    suspend fun addUser(userDetails: UserDetails): UserDetails
-
     suspend fun setUserName(id: Long, name: String): UserDetails
 
     suspend fun setUserImage(id: Long, url: String): UserDetails

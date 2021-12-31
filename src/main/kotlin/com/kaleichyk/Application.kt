@@ -1,10 +1,11 @@
 package com.kaleichyk
 
+import com.kaleichyk.controller.AuthController
 import com.kaleichyk.controller.UserController
+import com.kaleichyk.interactor.AuthInteractor
 import com.kaleichyk.plugins.configureDI
 import com.kaleichyk.plugins.configureHTTP
 import com.kaleichyk.plugins.configureMonitoring
-import com.kaleichyk.plugins.configureSecurity
 import com.kaleichyk.plugins.configureSerialization
 import com.kaleichyk.plugins.configureStatusPage
 import com.kaleichyk.route.configureTestRoute
@@ -13,6 +14,8 @@ import com.kaleichyk.utils.extension.databaseDriver
 import com.kaleichyk.utils.extension.databasePassword
 import com.kaleichyk.utils.extension.databaseUrl
 import com.kaleichyk.utils.extension.databaseUser
+import com.kaleichyk.utils.extentension.realm
+import com.kaleichyk.verifier.TokenVerifier
 import io.ktor.application.Application
 import io.ktor.routing.routing
 import io.ktor.server.netty.EngineMain
@@ -27,7 +30,7 @@ fun main(args: Array<String>) = EngineMain.main(args)
 fun Application.module() {
     configureDI()
     configureDatabase()
-    configureSecurity()
+    configureSecurity(inject<AuthInteractor>().value, inject<TokenVerifier>().value.verifier, realm)
     configureHTTP()
     configureMonitoring()
     configureSerialization()
@@ -36,6 +39,7 @@ fun Application.module() {
     routing {
         configureTestRoute()
         createUserRoute(inject<UserController>().value)
+        createAuthRoute(inject<AuthController>().value)
     }
 }
 
