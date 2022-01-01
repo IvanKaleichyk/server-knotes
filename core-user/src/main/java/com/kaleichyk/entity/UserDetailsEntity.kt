@@ -14,4 +14,5 @@ class UserDetailsEntity(id: EntityID<Long>) : LongEntity(id) {
     var image by UserDetailsTable.image
     var about by UserDetailsTable.about
     val lastUpdated by UserDetailsTable.lastUpdated
+    var isEmailValidate by UserDetailsTable.isEmailValidate
 }

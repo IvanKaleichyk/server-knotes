@@ -6,5 +6,6 @@ data class UserDetailsBody(
     val password: String,
     val image: String? = null,
     val about: String? = null,
-    val roles: List<String>
+    val roles: List<String>,
+    val isEmailValidate: Boolean = false
 )

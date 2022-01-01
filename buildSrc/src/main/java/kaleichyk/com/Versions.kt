@@ -10,4 +10,5 @@ object Versions {
     const val EXPOSED_VERSION = "0.36.2"
     const val KOIN_VERSION = "3.1.4"
     const val BCRYPT_VERSION = "0.4"
+    const val APACHE_EMAIL_VERSION = "1.5"
 }

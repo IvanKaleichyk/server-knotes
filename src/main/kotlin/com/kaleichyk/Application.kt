@@ -9,6 +9,7 @@ import com.kaleichyk.plugins.configureMonitoring
 import com.kaleichyk.plugins.configureSerialization
 import com.kaleichyk.plugins.configureStatusPage
 import com.kaleichyk.route.configureTestRoute
+import com.kaleichyk.service.EmailService
 import com.kaleichyk.table.UserDetailsTable
 import com.kaleichyk.utils.extension.databaseDriver
 import com.kaleichyk.utils.extension.databasePassword

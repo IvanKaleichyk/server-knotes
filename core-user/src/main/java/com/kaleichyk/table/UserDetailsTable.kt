@@ -17,6 +17,8 @@ object UserDetailsTable : LongIdTable() {
     val about = varchar("about", ABOUT_LENGTH).nullable()
     val image = varchar("image", IMAGE_LENGTH).nullable()
 
+    val isEmailValidate = bool("is_email_valid")
+
     val lastUpdated = long("last_updates").default(Date().time)
 
     // for analytics

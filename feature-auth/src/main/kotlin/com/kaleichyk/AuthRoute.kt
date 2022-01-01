@@ -34,14 +34,6 @@ fun Application.configureSecurity(interactor: AuthInteractor, verifier: JWTVerif
 //    TODO("INSTALL ROLES FEATURE")
 }
 
-private suspend fun validateCredential(interactor: AuthInteractor, credential: JWTCredential): JWTPrincipal {
-    credential.payload.run {
-        val result = interactor.validateCredential(getLogin(), getPassword())
-        if (result) return JWTPrincipal(credential.payload)
-        else throw AuthException("Not available JWT token")
-    }
-}
-
 fun Route.createAuthRoute(controller: AuthController) {
 
     route("auth") {
@@ -57,5 +49,13 @@ fun Route.createAuthRoute(controller: AuthController) {
             val response = controller.refreshToken(refreshToken)
             call.respond(response)
         }
+    }
+}
+
+private suspend fun validateCredential(interactor: AuthInteractor, credential: JWTCredential): JWTPrincipal {
+    credential.payload.run {
+        val result = interactor.validateCredential(getLogin(), getPassword())
+        if (result) return JWTPrincipal(credential.payload)
+        else throw AuthException("Not available JWT token")
     }
 }

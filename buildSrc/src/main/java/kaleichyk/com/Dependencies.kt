@@ -21,6 +21,9 @@ object Dependencies {
     // HASH PASSWORD
     const val BCRYPT = "org.mindrot:jbcrypt:${Versions.BCRYPT_VERSION}"
 
+    // EMAIL
+    const val APACHE_EMAIL = "org.apache.commons:commons-email:${Versions.APACHE_EMAIL_VERSION}"
+
     // DATABASE
     const val EXPOSED_CORE = "org.jetbrains.exposed:exposed-core:${Versions.EXPOSED_VERSION}"
     const val EXPOSED_DAO = "org.jetbrains.exposed:exposed-dao:${Versions.EXPOSED_VERSION}"

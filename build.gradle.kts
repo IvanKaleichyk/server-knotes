@@ -53,6 +53,7 @@ tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configure
 dependencies {
     implementation(project(":feature-auth"))
     implementation(project(":feature-user"))
+    implementation(project(":core-email"))
     implementation(project(":core-user"))
     implementation(project(":core-token"))
     implementation(project(":common-utils"))

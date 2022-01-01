@@ -29,6 +29,7 @@ class UserRepositoryImpl : UserRepository {
             image = userDetails.image
             about = userDetails.about
             email = userDetails.email
+            isEmailValidate = userDetails.isEmailValidate
         }
 
         try {

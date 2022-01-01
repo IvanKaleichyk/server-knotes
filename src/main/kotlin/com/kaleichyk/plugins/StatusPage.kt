@@ -3,6 +3,7 @@ package com.kaleichyk.plugins
 import com.kaleichyk.exceptions.AlreadyExistsException
 import com.kaleichyk.exceptions.AuthException
 import com.kaleichyk.exceptions.CannotFindException
+import com.kaleichyk.exceptions.NotEmailValidate
 import com.kaleichyk.utils.exception.UserNotExist
 import com.kaleichyk.utils.exception.WrongDataException
 import com.kaleichyk.verifier.ValidateException
@@ -20,6 +21,9 @@ fun Application.configureStatusPage() {
         }
         exception<AlreadyExistsException> { cause ->
             call.respond(HttpStatusCode.Conflict, cause.message.orEmpty())
+        }
+        exception<NotEmailValidate> { cause ->
+            call.respond(HttpStatusCode.Locked, cause.message.orEmpty())
         }
         configureAuth()
         configureUser()
