@@ -59,6 +59,8 @@ dependencies {
 
     implementation(Dependencies.KTOR_SERVER_CORE)
 
+    implementation(Dependencies.KTOR_AUTH_JWT)
+
     implementation(Dependencies.KTOR_METRICS)
     implementation(Dependencies.KTOR_METRICS_MICROMETER)
 

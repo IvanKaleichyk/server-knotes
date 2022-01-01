@@ -18,6 +18,9 @@ object Dependencies {
     const val KOIN_BASE = "io.insert-koin:koin-core:${Versions.KOIN_VERSION}"
     const val KOIN_KTOR = "io.insert-koin:koin-ktor:${Versions.KOIN_VERSION}"
 
+    // HASH PASSWORD
+    const val BCRYPT = "org.mindrot:jbcrypt:${Versions.BCRYPT_VERSION}"
+
     // DATABASE
     const val EXPOSED_CORE = "org.jetbrains.exposed:exposed-core:${Versions.EXPOSED_VERSION}"
     const val EXPOSED_DAO = "org.jetbrains.exposed:exposed-dao:${Versions.EXPOSED_VERSION}"

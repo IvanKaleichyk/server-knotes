@@ -10,6 +10,7 @@ import com.kaleichyk.models.toUserDetails
 import com.kaleichyk.table.UserDetailsTable
 import com.kaleichyk.utils.exception.UserNotExist
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
+import org.mindrot.jbcrypt.BCrypt
 
 class UserRepositoryImpl : UserRepository {
 
@@ -24,7 +25,7 @@ class UserRepositoryImpl : UserRepository {
     override suspend fun addUser(userDetails: UserDetailsBody): UserDetails = newSuspendedTransaction {
         val user = UserDetailsEntity.new {
             name = userDetails.name
-            password = userDetails.password
+            password = BCrypt.hashpw(userDetails.password, BCrypt.gensalt())
             image = userDetails.image
             about = userDetails.about
             email = userDetails.email
@@ -51,10 +52,11 @@ class UserRepositoryImpl : UserRepository {
         user.toUserDetails()
     }
 
-    override suspend fun checkUserCredentials(email: String, password: String): Boolean {
+    override suspend fun checkUserCredentials(email: String, password: String) = newSuspendedTransaction {
         val user =
-            UserDetailsEntity.find { UserDetailsTable.email eq email }.limit(1).firstOrNull() ?: throw UserNotExist()
+            UserDetailsEntity.find { UserDetailsTable.email eq email }.limit(1).firstOrNull()
+                ?: throw UserNotExist()
 
-        return user.password == password
+        BCrypt.checkpw(password, user.password)
     }
 }

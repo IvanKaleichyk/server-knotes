@@ -356,7 +356,6 @@ formatting:
     autoCorrect: true
   NoUnusedImports:
     active: true
-    autoCorrect: true
   NoWildcardImports:
     active: true
   PackageName:

@@ -21,6 +21,8 @@ dependencies {
 
     implementation(Dependencies.KOIN_BASE)
 
+    implementation(Dependencies.BCRYPT)
+
     testImplementation(Dependencies.KOTLIN_TEST_JUNIT)
 }
 
